@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Hero } from '../Hero';
 import { Heros } from '../mock-heroes';
 import { HeroService } from '../hero.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-heros',
@@ -15,14 +16,19 @@ export class HerosComponent {
   };
   heroes: Hero[] = [];
   selectedHero?: Hero;
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-  }
-  constructor(private heroService: HeroService) {} //why private? can we add more than one service?
+
+  constructor(
+    private heroService: HeroService,
+    public messageService: MessageService
+  ) {} //why private? can we add more than one service?
   // it can you when getting data from local file, but when getting data from server, it can't because data not ready yet
   //getHeroes(): void {
   //   this.heroes = this.heroService.getHeroes();
   // }
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  }
   getHeroes(): void {
     this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
   }
