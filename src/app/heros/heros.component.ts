@@ -27,6 +27,7 @@ export class HerosComponent {
   }
   getHeroes(): void {
     this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
+    console.log('test : ', this.heroes);
   }
   ngOnInit(): void {
     this.getHeroes();
