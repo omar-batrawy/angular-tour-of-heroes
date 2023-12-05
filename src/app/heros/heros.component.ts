@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from '../Hero';
-import { Heros } from '../mock-heroes';
+
 import { HeroService } from '../hero.service';
 import { MessageService } from '../message.service';
 
@@ -10,10 +10,6 @@ import { MessageService } from '../message.service';
   styleUrls: ['./heros.component.css'],
 })
 export class HerosComponent {
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm',
-  };
   heroes: Hero[] = [];
   selectedHero?: Hero;
 
