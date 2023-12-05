@@ -1,0 +1,31 @@
+<div class="giveheight">
+  <form (submit)="$event.preventDefault()">
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input
+        matInput
+        (cdkAutofill)="lastNameAutofilled = $event.isAutofilled"
+      />
+      <!-- @if (lastNameAutofilled) {
+      <mat-hint>Autofilled!</mat-hint>
+      } -->
+    </mat-form-field>
+    <button mat-raised-button>Submit</button>
+  </form>
+</div>
+<button (click)="openDialog()">Open custom dialog</button>
+<div>
+  <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+    <div
+      *cdkVirtualFor="let item of items; templateCacheSize: 0"
+      class="example-item"
+    >
+      {{ item }}
+    </div>
+  </cdk-virtual-scroll-viewport>
+</div>
+<button (click)="consoleLog()">Click me</button>
