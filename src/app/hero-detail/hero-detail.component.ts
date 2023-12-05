@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from '../Hero';
-import { Heros } from '../mock-heroes';
+
 import { Input } from '@angular/core';
 
 @Component({
@@ -11,4 +11,3 @@ import { Input } from '@angular/core';
 export class HeroDetailComponent {
   @Input() hero?: Hero;
 }
-
